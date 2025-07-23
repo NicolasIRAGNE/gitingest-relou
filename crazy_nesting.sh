@@ -10,6 +10,8 @@ mkdir -p $dirname
 nest=$dirname
 for i in {1..50}; do
   nest="$nest/level$i"
+  mkdir -p $nest
+  echo "$i" > $nest/$i
 done
 
 find $dirname -type d -name "level1" -exec bash -c 'echo "shallow" > {}/shallow.txt' \;
